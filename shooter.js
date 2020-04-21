@@ -372,7 +372,7 @@ var ShooterGame = function(bool){
                     <form action="" class="form">
                         <legend>Submit your score!</legend>
                         <label for="userName" class="visuallyHidden">Name</label>
-                        <input type="text" name="userName" placeholder="Name" id ="userName" maxlength=10 required>
+                        <input type="text" name="userName" placeholder="Name (10 Characters)" id ="userName" maxlength=10 required>
                         <input type="submit" id="restart-button" value="Submit">
                         </form>
                         <button id="restart-button" onclick="(ShooterGame(true))">Play Again?</button>
