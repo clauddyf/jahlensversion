@@ -339,21 +339,30 @@ var ShooterGame = function(bool){
 
             var resultsFunction = (array) => {
                 // let highScores = getHighScores()
-                getHighScores()
+                let scoresSent = getHighScores()
                 const daddy = document.createElement('section')
                 daddy.id = "daddySection"
                 const module  = document.createElement('div')
                 module.className = 'module'
                 const scoresContainer = document.createElement('div')
                 scoresContainer.className = 'highscores'
-
+                
                 const resultsContainer = document.createElement('div')
                 resultsContainer.className = 'results'
-                // function restartFunction(){
-                //     debugger
-                //     document.getElementById("daddySection").style.display= 'none'
-                //     ShooterGame(true)
-                // }
+                if(scoresSent.length > 0){
+                    let currentScores = []
+                    scoresSent.map(players => {
+                        return players.map(player => {
+                            const playerDetails = `<li>${player.name} - ${player.score} eradications </li>`
+                            currentScores.push(playerDetails)
+                        })
+                    })
+                    scoresContainer.innerHTML = `
+                    <h2>High Scores</h2>
+                    <div class="leader-boards">
+                        <ol>` + currentScores.join(" ") + `</ol>
+                    </div>`
+                }
 
                 resultsContainer.innerHTML = `
                     <h2>Game Over: You have done this planet a great service</h2>
